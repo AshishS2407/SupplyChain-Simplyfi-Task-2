@@ -1,11 +1,13 @@
-# Product Tracking Chaincode - Hyperledger Fabric
+# Supply Chain Tracking
 
 ## Introduction
-This project implements a **Product Tracking Chaincode** for Hyperledger Fabric. The chaincode allows tracking of product status changes throughout the supply chain. It provides functionalities to:
+This project implements a **Supply Chain Tracking Chaincode** for Hyperledger Fabric. The chaincode allows tracking of product status changes throughout the supply chain. It provides functionalities to:
 - Register a new product with an initial status.
 - Update the status of a product.
 - Query a product's current status and history.
 - List all products in the system.
+
+---
 
 ## Prerequisites
 Ensure the following dependencies are installed before setting up the network:
@@ -37,15 +39,19 @@ sudo apt install build-essential
 ```
 Verify installation:
 ```sh
-dpkg -l | grep build-essential
+dpkg -1 | grep build-essential
 ```
+---
 
 ## Setting Up the Hyperledger Fabric Test Network
 
 ### 1. Download Fabric
 Execute the following commands in your terminal:
 ```sh
-curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.sh
+curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh
+```
+```sh
+chmod +x install-fabric.sh
 ```
 
 Install Fabric and required dependencies:
@@ -57,6 +63,7 @@ Copy Fabric binaries to the system path:
 ```sh
 sudo cp fabric-samples/bin/* /usr/local/bin
 ```
+---
 
 ### 2. Start the Test Network
 Navigate to the Fabric samples directory and start the network:
@@ -65,6 +72,7 @@ cd fabric-samples/test-network
 ./network.sh down
 ./network.sh up createChannel -ca
 ```
+---
 
 ### 3. Deploy the Chaincode
 
@@ -73,6 +81,8 @@ cd fabric-samples/test-network
 ```
 Note: Replace ../path-to-chaincode with the exact path to your chaincode,
 You can also change the chaincode name (basic) to any name of your choice.
+
+---
 
 ### 4. Interacting with Chaincode
 #### Setup Environment Variables:
@@ -110,8 +120,23 @@ peer chaincode query -C mychannel -n basic -c '{"Args":["QueryProduct", "Product
 peer chaincode query -C mychannel -n basic -c '{"Args":["ListAllProducts"]}'
 ```
 
+---
+
+## 🤝 Contributing
+
+We welcome contribution! 🙌 Feel free to fork this project, open issues, or submit pull requests. Let’s build something amazing together! 🚀
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+
+---
+
 ## Conclusion
-This chaincode enables secure and transparent tracking of product status changes in a supply chain network. Follow the setup steps carefully to deploy and test the functionality on Hyperledger Fabric.
+This chaincode enables secure and transparent asset management in a blockchain network. Follow the setup steps carefully to deploy and test the functionality on Hyperledger Fabric.
 
 For more details, refer to the official Hyperledger Fabric documentation: [Hyperledger Fabric Docs](https://hyperledger-fabric.readthedocs.io/en/latest/index.html).
-
